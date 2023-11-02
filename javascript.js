@@ -20,10 +20,11 @@ function getComputerChoice() {
 }
 
 // random selection for the Computer
-const computerSelection = getComputerChoice();
+
 
 // Rock, Paper, Scissors for User
 function playerSelection() {
+    const randomString = prompt("Rock, Paper, or Sicssors");
     if (randomString == "Rock") {
         return "Rock";
     } else if (randomString == "Paper") {
@@ -36,7 +37,7 @@ function playerSelection() {
 }
 
 // Player's choice of Rock Paper Scissosrs
-const randomString = prompt("Rock, Paper, or Sicssors");
+
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -52,13 +53,36 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log("Player: " + randomString);
-console.log("Computer: " + computerSelection);
-console.log(playRound(playerSelection(), computerSelection));
 
 
 // Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
 
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let round = 1; round <= 5; round++) {
+    const playerChoice = playerSelection(); // Get the user's choice
+    const computerChoice = getComputerChoice(); // Get the computer's choice
+    const roundResult = playRound(playerChoice, computerChoice);
+
+    console.log(`Round ${round}: ${roundResult}`);
+
+    if (roundResult.includes("You Win")){
+        playerScore++;
+    } else if (roundResult.includes("Computer Wins")) {
+        computerScore++;
+    }
+}
+
+    if (playerScore > computerScore) {
+        console.log("You win the game!");
+    } else if (playerScore < computerScore) {
+        console.log("Computer wins the game!");
+    } else {
+        console.log("It's a tie!"); 
+    }
 
 }
+
+game();
