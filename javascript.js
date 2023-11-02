@@ -19,7 +19,10 @@ function getComputerChoice() {
     }
 }
 
-// Rock, Paper, Scissors
+// random selection for the Computer
+const computerSelection = getComputerChoice();
+
+// Rock, Paper, Scissors for User
 function playerSelection() {
     if (randomString == "Rock") {
         return "Rock";
@@ -35,19 +38,23 @@ function playerSelection() {
 // Player's choice of Rock Paper Scissosrs
 const randomString = prompt("Rock, Paper, or Sicssors");
 
-function singleRound(playerSelection, computerSelection) {
-    if (playerSelection == Rock) {
-
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "It's a tie";
+    } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        return "You Win! Rock Beats Scissors";
+    } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+        return "You Win! Paper Beats Rock";
+    } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+        return "You Win! Scissors Beats Paper";
+    } else {
+        return "Computer Wins!";
     }
 }
 
-
-// random selection for the Computer
-const computerSelection = getComputerChoice;
-
-
-
-console.log(getComputerChoice(playerSelection, computerSelection));
+console.log("Player: " + randomString);
+console.log("Computer: " + computerSelection);
+console.log(playRound(playerSelection(), computerSelection));
 
 
 // Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
