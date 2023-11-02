@@ -40,6 +40,8 @@ function playerSelection() {
 
 
 function playRound(playerSelection, computerSelection) {
+    console.log(`Player chooses: ${playerSelection}`);
+    console.log(`Computer chooses: ${computerSelection  }`);
     if (playerSelection == computerSelection) {
         return "It's a tie";
     } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
@@ -73,7 +75,10 @@ function game() {
     } else if (roundResult.includes("Computer Wins")) {
         computerScore++;
     }
+    console.log(`Round ${round} - Player: ${playerScore}, Computer: ${computerScore}`);
 }
+
+
 
     if (playerScore > computerScore) {
         console.log("You win the game!");
